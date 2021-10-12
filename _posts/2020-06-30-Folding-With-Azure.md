@@ -216,7 +216,7 @@ Even though all of these resources are scoped to the same resource group, using 
 
 I think that about covers the important things I wanted to go over via the template.  I will say that there's a cool VS Code extension that I use to sometimes visualize a template:
 
-![ARM Viewer View](/images/ARMViewerView.png)
+![ARM Viewer View](/blog/images/ARMViewerView.png)
 
 It's called [ARM Template Viewer](https://marketplace.visualstudio.com/items?itemName=bencoleman.armview), is authored by Ben Coleman, and is averaging 4.9 out of 5 stars on Visual Studio Marketplace currently.  It's great for when you want to see a graphical representation of your template.  You also can import a parameters file, like the one we're using here, to allow you to click on a resource and see the specifics of the parameters defined.  I highly recommend it and kudos to Ben for his hard work.
 
