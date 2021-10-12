@@ -155,21 +155,21 @@ window.onload = wrap_img;
 
 <p>Just as with the CLI, you need to be logged in to Storage Explorer with an account that has the appopriate privileges to perform these operations. Let’s start with creating the policy.  Right-click on your file share and you’ll see options similar to these:</p>
 
-<p><img src="/images/StorageExplorerManagePolicies.png" alt="Storage Explorer Manage Policies"></p>
+<p><img src="/blog/images/StorageExplorerManagePolicies.png" alt="Storage Explorer Manage Policies"></p>
 
 <p>Choose <code class="language-plaintext highlighter-rouge">Manage Access Policies</code> and you’ll see a screen similar to this:</p>
 
-<p><img src="/images/StorageExplorerPolicies.png" alt="Storage Explore Policies"></p>
+<p><img src="/blog/images/StorageExplorerPolicies.png" alt="Storage Explore Policies"></p>
 
 <p>If you’ve already perfomed the CLI steps above, you’ll see one or more policies listed.  You’ll notice you basically have the same options available to you as with the CLI steps.  One notable exception is the presence of a <code class="language-plaintext highlighter-rouge">Create</code> permission.  Per the <a href="https://docs.microsoft.com/en-us/cli/azure/storage/share/policy?view=azure-cli-latest#az-storage-share-policy-create">CLI documentation</a> for <code class="language-plaintext highlighter-rouge">az storage share policy create</code> the only permissions you can specify via the CLI are <code class="language-plaintext highlighter-rouge">rwdl</code>.  There is no <code class="language-plaintext highlighter-rouge">c</code> or mention of a create permission.  Yet, in the portal when creating an ad-hoc Files Service SAS you can specify one and in Storage Explorer you can as well.  I don’t see any difference in behavior in Storage Explorer using either method however, as you can still upload files to the share, create folders and manipulate them as you would like.  It is curious to me that there’s a discrepancy, but I honestly don’t know why this is.  If you know, please comment and share your wisdom!</p>
 
 <p>Once the policy is created, you can right-click again on the share and choose <code class="language-plaintext highlighter-rouge">Get Shared Access Signature</code>:</p>
 
-<p><img src="/images/GetSAS.png" alt="Get SAS"></p>
+<p><img src="/blog/images/GetSAS.png" alt="Get SAS"></p>
 
 <p>You’ll see a screen like this:</p>
 
-<p><img src="/images/SAS.png" alt="SAS"></p>
+<p><img src="/blog/images/SAS.png" alt="SAS"></p>
 
 <p>At the very top, you can specify the policy you just created and the relevant values will populate based on how you set your policy, other than the <code class="language-plaintext highlighter-rouge">Start time:</code> field.  It will basically be null.  Clicking create will create a URI that you can share with your end user.  You don’t even have to append the SAS with the endpoint!  Although, it gives you a query string representation as well <img class="emoji" title=":grin:" alt=":grin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f601.png" height="20" width="20">.</p>
 
