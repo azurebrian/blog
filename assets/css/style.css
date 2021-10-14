@@ -351,9 +351,7 @@ pre { margin-bottom: 1.5rem !important; }
 
 .post-title { margin-top: .5rem !important; }
 
-li { font-family: "Architects Daughter", cursive; }
-
-li h3, li h4 { margin-top: .05rem !important; margin-bottom: .05rem !important; }
+li h3, li h4 { margin-top: .05rem !important; margin-bottom: .05rem !important; font-family: "Architects Daughter", cursive; }
 
 li .post-meta-description { color: #585858; font-size: 15px; margin-top: .05rem !important; margin-bottom: .05rem !important; }
 
