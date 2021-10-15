@@ -1,1 +1,1 @@
-Sitemap: https://azurebrian.com/blog/sitemap.xml
+Sitemap: https://azurebrian.com/sitemap.xml
