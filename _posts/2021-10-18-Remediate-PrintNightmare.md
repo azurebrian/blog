@@ -3,6 +3,7 @@ layout: post
 description: Use this script to remediate Print Nightmare 
 categories: [security, 'blue team']
 title: Find Machines Vulnerable to Print Nightmare and Remediate
+date: 2021-10-18
 comments: true
 published: true
 ---
