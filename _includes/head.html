@@ -2,12 +2,19 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!--Twitter Metadata-->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@{{ site.twitter_username }}">
   <meta name="twitter:creator" content="@{{ page.author }}">
   <meta name="twitter:title" content="{{ page.title }}">
   <meta name="twitter:description" content="{{ page.description }}">
   <meta name="twitter:image" content="{{ site.title_image }}">
+  
+  <!--Linked In Metadata-->
+  <meta name="image" property="og:image" content="{{ site.title_image }}">
+  <meta name="publish_date" property="og:publish_date" content="{{ page.date }}">
+  
   {%- seo -%}
   <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com"> 
