@@ -13,7 +13,7 @@
   
   <!--Linked In Metadata-->
   <meta name="image" property="og:image" content="{{ site.title_image }}">
-  <meta name="publish_date" property="og:publish_date" content="{{-page.date-}}">
+  <meta name="publish_date" property="og:publish_date" content="{{page.date|strip}}">
   
   {%- seo -%}
   <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
