@@ -41,6 +41,10 @@ minima:
   social_links:
     twitter: azurebri
     github: azurebrian
+    
+#Twitter metadata for tweets linking to the blog
+twitter_username: azurebri
+title_image: "https://azurebrian.com/images/site_image_diagram.png"
 
 # Set this to true to get LaTeX math equation support
 use_math: 
