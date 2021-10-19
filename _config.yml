@@ -44,7 +44,7 @@ minima:
     
 #Twitter metadata for tweets linking to the blog
 twitter_username: azurebri
-title_image: "https://azurebrian.com/images/site_image_diagram.png"
+title_image: "https://azurebrian.com/images/blogdiagram.png"
 
 # Set this to true to get LaTeX math equation support
 use_math: 
