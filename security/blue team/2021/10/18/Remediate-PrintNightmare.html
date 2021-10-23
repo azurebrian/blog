@@ -145,19 +145,16 @@ window.onload = wrap_img;
 
 <p>You’ll notice right at the top that my intention was to disable the print spooler service altogether where I could get away with it:</p>
 
-<figure class="highlight"><pre><code class="language-powershell" data-lang="powershell"><span class="err">```</span><span class="nf">Powershell</span><span class="w">
-</span><span class="c">#For more info:  https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-34527</span><span class="w">
+<figure class="highlight"><pre><code class="language-powershell" data-lang="powershell"><span class="c">#For more info:  https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-34527</span><span class="w">
 
 </span><span class="c">#For machines where printing is not needed and we can just disable printing altogether!!!</span><span class="w">
 </span><span class="nf">Get-Service</span><span class="w"> </span><span class="nt">-Name</span><span class="w"> </span><span class="nx">Spooler</span><span class="w">
 </span><span class="nf">Stop-Service</span><span class="w"> </span><span class="nt">-Name</span><span class="w"> </span><span class="nx">Spooler</span><span class="w"> </span><span class="nt">-Force</span><span class="w">
-</span><span class="nf">Set-Service</span><span class="w"> </span><span class="nt">-Name</span><span class="w"> </span><span class="nx">Spooler</span><span class="w"> </span><span class="nt">-StartupType</span><span class="w"> </span><span class="nx">Disabled</span><span class="w">
-</span><span class="err">```</span></code></pre></figure>
+</span><span class="nf">Set-Service</span><span class="w"> </span><span class="nt">-Name</span><span class="w"> </span><span class="nx">Spooler</span><span class="w"> </span><span class="nt">-StartupType</span><span class="w"> </span><span class="nx">Disabled</span></code></pre></figure>
 
 <p>Of course, on user machines that’s a little more difficult and hence the trouble to detect and remediate those machines.  The most fool-proof way to detect if the appropriate patch has been installed is to search for it:</p>
 
-<figure class="highlight"><pre><code class="language-powershell" data-lang="powershell"><span class="err">```</span><span class="nf">Powershell</span><span class="w">
-</span><span class="nv">$Session</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">New-Object</span><span class="w"> </span><span class="nt">-ComObject</span><span class="w"> </span><span class="s2">"Microsoft.Update.Session"</span><span class="w">
+<figure class="highlight"><pre><code class="language-powershell" data-lang="powershell"><span class="nv">$Session</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">New-Object</span><span class="w"> </span><span class="nt">-ComObject</span><span class="w"> </span><span class="s2">"Microsoft.Update.Session"</span><span class="w">
 </span><span class="nv">$Searcher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$Session</span><span class="o">.</span><span class="nf">CreateUpdateSearcher</span><span class="p">()</span><span class="w">
 </span><span class="nv">$historyCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$Searcher</span><span class="o">.</span><span class="nf">GetTotalHistoryCount</span><span class="p">()</span><span class="w">
 </span><span class="nv">$hotfix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$Searcher</span><span class="o">.</span><span class="nf">QueryHistory</span><span class="p">(</span><span class="nx">0</span><span class="p">,</span><span class="w"> </span><span class="nv">$historyCount</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nf">Where-Object</span><span class="w"> </span><span class="p">{</span><span class="bp">$_</span><span class="o">.</span><span class="nf">Title</span><span class="w"> </span><span class="o">-like</span><span class="w"> </span><span class="s2">"*KB5004945*"</span><span class="p">}</span><span class="w">
@@ -168,8 +165,7 @@ window.onload = wrap_img;
 </span><span class="kr">else</span><span class="w"> 
 </span><span class="p">{</span><span class="w">
     </span><span class="nf">Write-Host</span><span class="w"> </span><span class="s2">"Patch KB5004945 has not been applied and you are at risk.  Please install Windows Updates and run this script again."</span><span class="w">    
-</span><span class="p">}</span><span class="w">
-</span><span class="err">```</span></code></pre></figure>
+</span><span class="p">}</span></code></pre></figure>
 
 <p>You might be tempted to use the <code class="language-plaintext highlighter-rouge">Get-Hotfix</code> Powershell command to detect for the presence of the installed update.  Sometimes that works, but not always according to this <a href="https://docs.microsoft.com/en-us/answers/questions/191945/get-hotfix-not-returning-all-installed-kbs.html">post</a>.</p>
 
