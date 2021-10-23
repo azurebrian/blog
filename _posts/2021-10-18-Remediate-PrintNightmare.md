@@ -14,7 +14,7 @@ It's been a while, and boy was it a Spring/Summer to remember regarding Microsof
 
 You'll notice right at the top that my intention was to disable the print spooler service altogether where I could get away with it:
 
-{% highlight Powershell%}
+{% highlight Powershell %}
 #For more info:  https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-34527
 
 #For machines where printing is not needed and we can just disable printing altogether!!!
@@ -25,7 +25,7 @@ Set-Service -Name Spooler -StartupType Disabled
 
 Of course, on user machines that's a little more difficult and hence the trouble to detect and remediate those machines.  The most fool-proof way to detect if the appropriate patch has been installed is to search for it:
 
-{% highlight Powershell%}
+{% highlight Powershell %}
 $Session = New-Object -ComObject "Microsoft.Update.Session"
 $Searcher = $Session.CreateUpdateSearcher()
 $historyCount = $Searcher.GetTotalHistoryCount()
