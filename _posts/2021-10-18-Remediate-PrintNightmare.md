@@ -14,6 +14,7 @@ It's been a while, and boy was it a Spring/Summer to remember regarding Microsof
 
 You'll notice right at the top that my intention was to disable the print spooler service altogether where I could get away with it:
 
+{% highlight Powershell%}
 ```Powershell
 #For more info:  https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-34527
 
@@ -22,9 +23,11 @@ Get-Service -Name Spooler
 Stop-Service -Name Spooler -Force
 Set-Service -Name Spooler -StartupType Disabled
 ```
+{% endhighlight %}
 
 Of course, on user machines that's a little more difficult and hence the trouble to detect and remediate those machines.  The most fool-proof way to detect if the appropriate patch has been installed is to search for it:
 
+{% highlight Powershell%}
 ```Powershell
 $Session = New-Object -ComObject "Microsoft.Update.Session"
 $Searcher = $Session.CreateUpdateSearcher()
@@ -38,8 +41,8 @@ else
 {
     Write-Host "Patch KB5004945 has not been applied and you are at risk.  Please install Windows Updates and run this script again."    
 }
-
 ```
+{% endhighlight %}
 
 You might be tempted to use the `Get-Hotfix` Powershell command to detect for the presence of the installed update.  Sometimes that works, but not always according to this [post](https://docs.microsoft.com/en-us/answers/questions/191945/get-hotfix-not-returning-all-installed-kbs.html).
 
